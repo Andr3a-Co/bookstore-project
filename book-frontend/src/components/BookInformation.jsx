@@ -55,8 +55,7 @@ const BookInformation = ({ book, onClose }) => {
                 <div className='flex justify-start items-center gap-x-2'>
                     <BiUserCircle className='text-green-300 text-2xl' />
                     <h2 className='my-1'>{book.author}</h2>
-                </div>
-                <p className='mt-4'>Anything You want to show</p>
+                </div>                
                 <p className='my-2'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quia
                     voluptatum sint. Nisi impedit libero eveniet cum vitae qui expedita
