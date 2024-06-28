@@ -3,6 +3,7 @@ import axios from "axios";
 import { AiOutlineClose } from 'react-icons/ai';
 import { PiBookOpenTextLight } from 'react-icons/pi';
 import { BiUserCircle } from 'react-icons/bi';
+import { URL } from "../api/apiConfig";
 import AddCommentForm from './AddComentForm';
 import CommentsList from "./CommentList";
 
@@ -15,7 +16,7 @@ const BookInformation = ({ book, onClose }) => {
 
         const loadBooks = async () => {
             await axios
-                .get('http://localhost:5000/books')
+                .get(`${URL}/books`)
                 .then((response) => {
                     setBooks(response.data.data);
                 })

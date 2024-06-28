@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSnackbar } from "notistack";
+import { URL } from "../api/apiConfig";
 import BackButton from "../components/BackButton";
 import axios from "axios";
 
@@ -21,7 +22,7 @@ const AddBook = () => {
       publishYear,
     }
     await axios
-    .post(`http://localhost:5000/books`, bookData )
+    .post(`${URL}/books`, bookData )
     .then(() => {
       enqueueSnackbar('Book successfully created', { variant: "success"});
       navigate('/');

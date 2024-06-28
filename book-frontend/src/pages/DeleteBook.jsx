@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams} from "react-router-dom";
 import { useSnackbar } from "notistack";
+import { URL } from "../api/apiConfig";
 import BackButton from "../components/BackButton";
 import axios from "axios";
 
@@ -15,7 +16,7 @@ const DeleteBook = () => {
 
   useEffect(() => {        
       axios
-      .get(`http://localhost:5000/books/${id}`)
+      .get(`${URL}/books/${id}`)
       .then((response) => {
         setAuthor(response.data.author);
         setTitle(response.data.title);
@@ -30,7 +31,7 @@ const DeleteBook = () => {
   const deleteBook = async () => {
 
     await axios
-    .delete(`http://localhost:5000/books/${id}`)
+    .delete(`${URL}/books/${id}`)
     .then(() => {
       enqueueSnackbar('Book successfully deleted', { variant: "success"});
       navigate('/');

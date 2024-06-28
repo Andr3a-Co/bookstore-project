@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineAddBox } from 'react-icons/md';
+import { URL } from "../api/apiConfig";
 import BookCard from "../components/BookCard";
 import logo from '../assets/book-store.png';
 import axios from "axios";
@@ -14,7 +15,7 @@ const Home = () => {
 
     const loadBooks = async () => {
       await axios
-        .get('http://localhost:5000/books')
+        .get(`${URL}/books`)
         .then((response) => {
           setBooks(response.data.data);
         })

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { URL } from "../api/apiConfig";
 import axios from "axios";
 import BackButton from "../components/BackButton";
 
@@ -12,7 +13,7 @@ const DisplayBook = () => {
   useEffect(() => {    
     const loadBook = async () => {
       await axios
-        .get(`http://localhost:5000/books/${id}`)
+        .get(`${URL}/books/${id}`)
         .then( (response) => {
         setBook(response.data);
       })

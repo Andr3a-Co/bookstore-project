@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import { URL } from "./api/apiConfig";
 import axios from "axios";
 import Home from './pages/Home';
 import AddBook from "./pages/AddBook";
@@ -11,9 +12,11 @@ import DeleteBook from "./pages/DeleteBook";
 const App = () => {
   useEffect( () => {
     
-      axios.get('http://localhost:5000/books').then( response => console.log(response));
+      axios.get(`${URL}/books`).then( response => console.log(response));
   }, []);
-  axios.defaults.baseURL = 'http://localhost:5000/books';
+  
+  axios.defaults.baseURL = `${URL}/books`;
+
   return (
     <Routes>
       <Route path="/" element={<Home/>}/>
