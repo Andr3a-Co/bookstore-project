@@ -6,6 +6,7 @@ import cors from 'cors';
 
 const app = express();
 
+
 //Parsing request body
 app.use(express.json());
 
@@ -16,6 +17,12 @@ app.use(
         allowedHeaders: ['Content-Type'], 
     })
 );
+
+//Api response connection
+app.get('/', (req,res) =>{
+    res.send("Backend server for bboks");
+})
+
 //Books routes
 app.use('/books', booksRoute);
 
